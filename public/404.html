@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+</head>
+<body>
+  <p>Redirecting to the app…</p>
+  <script>
+    // GitHub Pages serves this for any unknown path. Redirect to the app root
+    // so the SPA can handle the route. Works for project pages (e.g. /OCS-Website/).
+    var pathSegments = location.pathname.split('/').filter(Boolean);
+    var base = '/' + (pathSegments[0] || '') + '/';
+    sessionStorage.redirect = location.href;
+    location.replace(location.origin + base);
+  </script>
+</body>
+</html>
