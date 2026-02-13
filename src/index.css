@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body text-brand-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-deep;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-deep px-6 py-3 font-display font-semibold text-white shadow-lg shadow-brand-deep/25 transition hover:bg-brand-dark hover:shadow-brand-deep/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-deep;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-brand-deep bg-transparent px-6 py-3 font-display font-semibold text-brand-deep transition hover:bg-brand-deep hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-deep;
+  }
+  .section-heading {
+    @apply font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl;
+  }
+  .section-sub {
+    @apply mt-3 max-w-2xl text-lg text-brand-ink/80;
+  }
+}
