@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/logo-workroom.jpg"
+                src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
                 alt=""
                 className="h-10 w-10 rounded-lg object-cover"
                 width="40"

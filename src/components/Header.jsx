@@ -19,7 +19,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="OCS Home">
           <img
-            src="/logo-workroom.jpg"
+            src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
             alt=""
             className="h-10 w-10 rounded-lg object-cover sm:h-12 sm:w-12"
             width="48"
