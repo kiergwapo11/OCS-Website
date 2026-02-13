@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const COMPANY_LINKS = [
@@ -11,19 +12,25 @@ const JOIN_LINKS = [
 ]
 
 export default function Footer() {
+  const [logoError, setLogoError] = useState(false)
   return (
     <footer className="border-t border-brand-ink/10 bg-brand-ink text-white">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <img
-                src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
-                alt=""
-                className="h-10 w-10 rounded-lg object-cover"
-                width="40"
-                height="40"
-              />
+              {!logoError ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
+                  alt=""
+                  className="h-10 w-10 rounded-lg object-cover"
+                  width="40"
+                  height="40"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/20 font-display text-lg font-bold">O</span>
+              )}
               <span className="font-display text-xl font-bold">OCS</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-white/80">

@@ -12,19 +12,25 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [logoError, setLogoError] = useState(false)
   const location = useLocation()
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-ink/10 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="OCS Home">
-          <img
-            src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
-            alt=""
-            className="h-10 w-10 rounded-lg object-cover sm:h-12 sm:w-12"
-            width="48"
-            height="48"
-          />
+          {!logoError ? (
+            <img
+              src={`${import.meta.env.BASE_URL}logo-workroom.jpg`}
+              alt=""
+              className="h-10 w-10 rounded-lg object-cover sm:h-12 sm:w-12"
+              width="48"
+              height="48"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-deep/20 font-display text-lg font-bold text-brand-deep sm:h-12 sm:w-12 sm:text-xl">O</span>
+          )}
           <span className="font-display text-xl font-bold text-brand-ink sm:text-2xl">OCS</span>
         </Link>
 
